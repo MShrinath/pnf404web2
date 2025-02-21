@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Error</title>
+    <style>
+        body {
+            background-color: #000084;
+            color: #ffffff;
+            font-family: 'Courier New', monospace;
+            padding: 50px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .error-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .error-text {
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .restart-btn {
+            background: #ffffff;
+            color: #000084;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .restart-btn:hover {
+            background: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>SYSTEM ERROR</h1>
+        <div class="error-text">
+            A fatal exception 0E has occurred at 0028:C0011E36 in VXD VMM(01) +
+            00010E36. The current application will be terminated.
+        </div>
+        <div class="error-text">
+            * Press any key to terminate the current application<br>
+            * Press CTRL+ALT+DEL to restart your computer. You will<br>
+            &nbsp;&nbsp;lose any unsaved information in all applications.
+        </div>
+        <div class="blink">Press any key to continue _</div>
+        <button class="restart-btn" onclick="window.location.href='index.html'">Restart System</button>
+    </div>
+    <script>
+        // Prevent right click
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
+        
+        // Handle any key press
+        document.addEventListener('keydown', () => {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
