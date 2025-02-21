@@ -11,7 +11,7 @@ function updateThemeToggle(theme) {
 }
 
 function toggleTheme() {
-    const currentTheme = localStorage.getItem('theme') || 'light';
+    const currentTheme = localStorage.getItem('theme') || 'dark';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
 }
@@ -20,7 +20,7 @@ function toggleTheme() {
 document.addEventListener('contextmenu', (e) => e.preventDefault());
 
 // Initialize theme
-const savedTheme = localStorage.getItem('theme') || 'light';
+const savedTheme = localStorage.getItem('theme') || 'dark';
 setTheme(savedTheme);
 
 // Generate a random number between 1 and 100
