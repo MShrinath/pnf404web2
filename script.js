@@ -1,32 +1,10 @@
-// Theme management
-function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-    updateThemeToggle(theme);
-}
-
-function updateThemeToggle(theme) {
-    const toggle = document.getElementById('theme-toggle');
-    toggle.textContent = theme === 'dark' ? '🌞' : '🌙';
-}
-
-function toggleTheme() {
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-}
+// Initialize game state
+let remainingChances = 10;
+const targetNumber = Math.floor(Math.random() * 100) + 1;
+const history = [];
 
 // Prevent right click
 document.addEventListener('contextmenu', (e) => e.preventDefault());
-
-// Initialize theme
-const savedTheme = localStorage.getItem('theme') || 'dark';
-setTheme(savedTheme);
-
-// Generate a random number between 1 and 100
-const targetNumber = Math.floor(Math.random() * 100) + 1;
-let remainingChances = 10;
-const history = [];
 
 function checkGuess() {
     const guessInput = document.getElementById('guess');
@@ -75,7 +53,7 @@ function checkGuess() {
 }
 
 // Add enter key support
-document.getElementById('guess').addEventListener('keypress', function(event) {
+document.getElementById('guess')?.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         checkGuess();
     }
